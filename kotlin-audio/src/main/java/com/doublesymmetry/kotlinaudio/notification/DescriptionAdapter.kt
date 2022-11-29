@@ -4,7 +4,6 @@ import android.app.PendingIntent
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-import android.graphics.Color
 import android.graphics.drawable.BitmapDrawable
 import coil.imageLoader
 import coil.request.Disposable
@@ -79,13 +78,7 @@ class DescriptionAdapter(private val metadataProvider: NotificationMetadataProvi
                 .build()
         )
         hadBitmapOnTime = itemHolder.artworkBitmap != null
-        return itemHolder.artworkBitmap ?: getLargeIconPlaceholder()
-    }
-
-    private fun getLargeIconPlaceholder(): Bitmap {
-        val placeholderImage = Bitmap.createBitmap(400, 400, Bitmap.Config.ARGB_8888)
-        placeholderImage.eraseColor(Color.DKGRAY)
-        return placeholderImage
+        return itemHolder.artworkBitmap
     }
 
     fun release() {
